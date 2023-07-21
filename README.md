@@ -41,7 +41,7 @@ If you want to host a server, take a look at [command line instructions](https:/
 ## Development setup
 
 - clone the project, including submodules: `git clone --depth 1 --recurse-submodules https://github.com/GTA-ASM/SanAndreasUnity`
-- open the project with Unity 2020.3.26 or newer
+- open the project with Unity 2022.3.5f1 or newer
 - open startup scene located at Assets/Scenes/Startup.unity
 - press Play button
 
