@@ -46,7 +46,7 @@ namespace SanAndreasUnity.Behaviours.Vehicles
             }
         }
 
-        public Vector3 Velocity { get { return _rigidBody != null ? _rigidBody.velocity : Vector3.zero; } }
+        public Vector3 Velocity { get { return _rigidBody != null ? _rigidBody.linearVelocity : Vector3.zero; } }
 
         public float AverageWheelHeight { get { return _wheels.Count == 0 ? transform.position.y : _wheels.Average(x => x.Child.position.y); } }
 
@@ -100,7 +100,7 @@ namespace SanAndreasUnity.Behaviours.Vehicles
         {
             if (_rigidBody != null)
             {
-                _rigidBody.drag = HandlingData.Drag * vals.DragScale;
+                _rigidBody.linearDamping = HandlingData.Drag * vals.DragScale;
                 _rigidBody.mass = HandlingData.Mass * vals.MassScale;
                 _rigidBody.centerOfMass = HandlingData.CentreOfMass;
             }

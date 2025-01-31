@@ -78,7 +78,7 @@ namespace SanAndreasUnity.Behaviours
                 Weapon.ProjectileModel.AttachFrames(m_modelAttachTransform, MaterialFlags.Default);
             }
 
-            this.RigidBody.velocity = this.transform.forward * this.speed;
+            this.RigidBody.linearVelocity = this.transform.forward * this.speed;
 
             if (!NetStatus.IsServer)
             {
@@ -99,12 +99,12 @@ namespace SanAndreasUnity.Behaviours
             m_modelAttachTransform.rotation *= Quaternion.AngleAxis (delta, Vector3.forward);
 
             // accelerate projectile
-            Vector3 currentVectorSpeed = this.RigidBody.velocity;
+            Vector3 currentVectorSpeed = this.RigidBody.linearVelocity;
             float currentSpeed = currentVectorSpeed.magnitude;
             if (currentSpeed < this.maxSpeed)
             {
                 float newSpeed = currentSpeed + this.acceleration * Time.deltaTime;
-                this.RigidBody.velocity = currentVectorSpeed.normalized * newSpeed;
+                this.RigidBody.linearVelocity = currentVectorSpeed.normalized * newSpeed;
             }
         }
 

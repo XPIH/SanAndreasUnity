@@ -77,7 +77,7 @@ namespace SanAndreasUnity.Net
 
             Vector3 pos = this.Rigidbody.position;
             Vector3 rot = this.Rigidbody.rotation.eulerAngles;
-            Vector3 vel = this.Rigidbody.velocity;
+            Vector3 vel = this.Rigidbody.linearVelocity;
             Vector3 angVel = this.Rigidbody.angularVelocity;
 
             if (pos != m_net_position)
@@ -115,7 +115,7 @@ namespace SanAndreasUnity.Net
 
             // position and rotation are updated in syncvar hooks
 
-            this.Rigidbody.velocity = m_net_velocity;
+            this.Rigidbody.linearVelocity = m_net_velocity;
             this.Rigidbody.angularVelocity = m_net_angularVelocity;
         }
 

@@ -246,7 +246,7 @@ namespace SanAndreasUnity.Behaviours.Vehicles
                 this.NetIdentity.netId,
                 this.Definition.Id,
                 this.Colors,
-                this.RigidBody != null ? this.RigidBody.velocity : (Vector3?)null,
+                this.RigidBody != null ? this.RigidBody.linearVelocity : (Vector3?)null,
                 this.RigidBody != null ? this.RigidBody.angularVelocity : (Vector3?)null);
         }
 
@@ -284,11 +284,11 @@ namespace SanAndreasUnity.Behaviours.Vehicles
             meshCollider.sharedMesh = meshFilter.sharedMesh;
             var rigidBody = meshFilter.gameObject.GetOrAddComponent<Rigidbody>();
             rigidBody.mass = mass;
-            rigidBody.drag = 0.05f;
+            rigidBody.linearDamping = 0.05f;
             rigidBody.maxDepenetrationVelocity = VehicleManager.Instance.explosionLeftoverPartsMaxDepenetrationVelocity;
             rigidBody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
             if (initialVelocity.HasValue)
-                rigidBody.velocity = initialVelocity.Value;
+                rigidBody.linearVelocity = initialVelocity.Value;
             if (initialAngularVelocity.HasValue)
                 rigidBody.angularVelocity = initialAngularVelocity.Value;
             

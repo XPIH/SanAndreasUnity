@@ -317,7 +317,7 @@ namespace SanAndreasUnity.Behaviours.Peds
         {
             // it's better to send local velocity, because rotation of ragdoll can change very fast, and so
             // will the world velocity
-            return rb.transform.InverseTransformVector(rb.velocity);
+            return rb.transform.InverseTransformVector(rb.linearVelocity);
         }
     }
 }

@@ -101,7 +101,7 @@ namespace SanAndreasUnity.Stats
                     {
                         var rb = vehicle.RigidBody;
                         texts.AddRange(new string[]{"\tmass", "\tvelocity", "\tangular velocity"});
-                        objects.AddRange(new object[]{rb.mass, rb.velocity, rb.angularVelocity});
+                        objects.AddRange(new object[]{rb.mass, rb.linearVelocity, rb.angularVelocity});
                     }
 
                     texts.Add("seats");

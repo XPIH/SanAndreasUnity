@@ -382,13 +382,13 @@ namespace SanAndreasUnity.Behaviours
 			// setup rigid bodies
 			foreach (var rb in ragdollTransform.GetComponentsInChildren<Rigidbody>())
 			{
-				rb.drag = PedManager.Instance.ragdollDrag;
+				rb.linearDamping = PedManager.Instance.ragdollDrag;
 				if (PedManager.Instance.ragdollMaxDepenetrationVelocity >= 0)
 					rb.maxDepenetrationVelocity = PedManager.Instance.ragdollMaxDepenetrationVelocity;
 				rb.collisionDetectionMode = PedManager.Instance.ragdollCollisionDetectionMode;
 
 				// add velocity to ragdoll based on current ped's velocity
-				rb.velocity = m_ped.Velocity;
+				rb.linearVelocity = m_ped.Velocity;
 			}
 
 			// apply force to a collider that was hit by a weapon
